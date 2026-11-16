@@ -1,7 +1,9 @@
 const Hero = () => {
   return (
-    <div>Hero</div>
-  )
-}
+    <section>
+      <h1>CORi.Lab</h1>
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;
