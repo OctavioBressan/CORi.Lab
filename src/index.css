@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+
+@import "tailwindcss";
+
+@theme {
+  /* Tipografías */
+  --font-heading: "EB Garamond", Georgia, serif;
+  --font-body: "Cabin", Arial, sans-serif;
+
+  /* Colores principales */
+  --color-canvas: #F5F1E9;
+  --color-surface: #FFFCF7;
+  --color-ink: #24211E;
+  --color-line: #DDD4C7;
+
+  /* Colores de acento */
+  --color-accent: #E9C96A;
+  --color-pink: #D98BA0;
+  --color-purple: #A496C8;
+}
+
+@layer base {
+  body {
+    @apply bg-canvas text-ink font-body;
+  }
+}
