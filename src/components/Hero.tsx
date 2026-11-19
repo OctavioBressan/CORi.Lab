@@ -45,7 +45,7 @@ const Hero = () => {
   const reducirMovimiento = useReducedMotion();
 
   return (
-    <section className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-12 lg:grid-cols-2 lg:items-center lg:gap-6 lg:px-10 lg:pt-16 lg:pb-24 xl:max-w-[1450px]">
+    <section className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-12 lg:grid-cols-2 lg:items-center lg:gap-6 lg:px-10 lg:pt-16 lg:pb-15 xl:max-w-[1450px]">
       
       {/* Elemento decorativo del manual de marca */}
       <DecoracionesMarca seccion="hero" />
