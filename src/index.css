@@ -9,7 +9,7 @@
   --font-body: "Cabin", Arial, sans-serif;
 
   /* Colores principales */
-  --color-canvas: #F7EDE2;
+  --color-canvas: #EEF0EF;
   --color-surface: #FFFCF7;
   --color-ink: #24211E;
   --color-line: #DDD4C7;
@@ -18,6 +18,13 @@
   --color-accent: #E9C96A;
   --color-pink: #D98BA0;
   --color-purple: #A496C8;
+
+  /* Colores de marca */
+  --color-brand-red: #F80602;
+  --color-brand-blue: #043CB6;
+  --color-brand-cyan: #4083A9;
+  --color-brand-magenta: #C13392;
+  --color-brand-sand: #EEF0EF;
 }
 
 @layer base {

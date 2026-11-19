@@ -6,6 +6,7 @@ import psicodelica2 from "../assets/hero/Psicodelica2.webp";
 import psicodelica from "../assets/hero/Psicodelica.webp";
 import perro from "../assets/hero/Perro.webp";
 import fondo from "../assets/hero/Fondo.webp";
+import DecoracionesMarca from "./DecoracionesMarca";
 
 const sombras = {
   fondo: `
@@ -45,6 +46,10 @@ const Hero = () => {
 
   return (
     <section className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-12 lg:grid-cols-2 lg:items-center lg:gap-6 lg:px-10 lg:pt-16 lg:pb-24 xl:max-w-[1450px]">
+      
+      {/* Elemento decorativo del manual de marca */}
+      <DecoracionesMarca seccion="hero" />
+
       {/* Contenido principal */}
       <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
         <p className="mb-8 text-xs font-semibold tracking-[0.25em] uppercase md:text-sm">
@@ -65,7 +70,7 @@ const Hero = () => {
         <div className="mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <Link
             to="/catalogo"
-            className="rounded-full bg-ink px-7 py-3 text-center font-semibold text-canvas shadow-[0_6px_12px_rgba(30,20,10,0.25)] transition-all hover:-translate-y-0.5 hover:shadow-[0_9px_16px_rgba(30,20,10,0.30)]"
+            className="rounded-full bg-brand-magenta px-7 py-3 text-center font-semibold text-canvas shadow-[0_6px_12px_rgba(30,20,10,0.25)] transition-all hover:-translate-y-0.5 hover:shadow-[0_9px_16px_rgba(30,20,10,0.30)]"
           >
             Explorar alfombras
           </Link>

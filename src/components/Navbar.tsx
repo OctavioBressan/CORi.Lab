@@ -7,10 +7,10 @@ import texturaNavbar from "../assets/textura-navbar.png";
 const NavBar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
-  const estiloEnlace = ({ isActive }: { isActive: boolean }) =>
-    isActive
-    ? "text-base md:text-lg font-bold text-ink transition-colors"
-    : "text-base md:text-lg font-medium text-ink/90 hover:text-ink transition-colors";
+ const estiloEnlace = ({ isActive }: { isActive: boolean }) =>
+  isActive
+    ? "text-base md:text-lg font-bold text-brand-magenta transition-colors md:rounded-full md:border-2 md:border-brand-magenta md:px-3 md:py-1"
+    : "text-base md:text-lg font-medium text-ink/90 hover:text-brand-magenta transition-colors md:rounded-full md:border-2 md:border-transparent md:px-3 md:py-1";
 
   return (    
       <header
@@ -49,7 +49,7 @@ const NavBar = () => {
 
           <NavLink
             to="/cotizador"
-            className="hidden rounded-full bg-ink px-5 py-3 text-base font-semibold text-canvas transition-opacity hover:opacity-80 md:inline-flex"
+            className="hidden rounded-full bg-brand-magenta px-5 py-3 text-base font-semibold text-canvas transition-opacity hover:opacity-80 md:inline-flex"
           >
             Cotizá tu alfombra
           </NavLink>
@@ -110,7 +110,7 @@ const NavBar = () => {
 
                 <NavLink
                   to="/cotizador"
-                  className="self-start rounded-full bg-ink px-5 py-3 text-sm font-semibold text-canvas"
+                  className="self-start rounded-full bg-brand-magenta px-5 py-3 text-sm font-semibold text-canvas"
                   onClick={() => setMenuAbierto(false)}
                 >
                   Cotizá tu alfombra
