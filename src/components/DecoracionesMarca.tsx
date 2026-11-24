@@ -22,10 +22,16 @@ type Decoracion = {
   src: string;
   posicion: string;
   delay: number;
+  top?: string;
 };
 
+type Props = {
+  seccion: Seccion;
+  cantidadAlfombras?: number;
+};
+
+// Decoraciones con posiciones fijas
 const decoraciones: Record<Seccion, Decoracion[]> = {
-  // Decoraciones del Hero
   hero: [
     {
       src: estrellaAzul,
@@ -44,7 +50,6 @@ const decoraciones: Record<Seccion, Decoracion[]> = {
     },
   ],
 
-  // Sección de alfombras destacadas
   destacadas: [
     {
       src: trazoSuperior,
@@ -58,7 +63,6 @@ const decoraciones: Record<Seccion, Decoracion[]> = {
     },
   ],
 
-  // Sección sobre Cori.lab
   nosotros: [
     {
       src: poligonoCian,
@@ -72,21 +76,9 @@ const decoraciones: Record<Seccion, Decoracion[]> = {
     },
   ],
 
-  // Vista previa del catálogo
-  catalogo: [
-    {
-      src: trazoHorizontal,
-      posicion: "top-[12%] left-[4%] w-20",
-      delay: 0.1,
-    },
-    {
-      src: circuloMagenta,
-      posicion: "bottom-[15%] right-[5%] w-12",
-      delay: 0.25,
-    },
-  ],
+  // El catálogo genera sus decoraciones dinámicamente
+  catalogo: [],
 
-  // Sección de proyectos
   proyectos: [
     {
       src: estrellaAzul,
@@ -101,21 +93,63 @@ const decoraciones: Record<Seccion, Decoracion[]> = {
   ],
 };
 
-const DecoracionesMarca = ({ seccion }: { seccion: Seccion }) => {
+// Gráficos del manual utilizados en el catálogo
+const graficosCatalogo = [
+  { src: estrellaAzul, ancho: "w-16" },
+  { src: circuloMagenta, ancho: "w-12" },
+  { src: estrellaRoja, ancho: "w-14" },
+  { src: poligonoCian, ancho: "w-16" },
+  { src: trazoHorizontal, ancho: "w-20" },
+  { src: trazoCorto, ancho: "w-20" },
+];
+
+const DecoracionesMarca = ({
+  seccion,
+  cantidadAlfombras = 0,
+}: Props) => {
   const reducirMovimiento = useReducedMotion();
+
+  // El catálogo tiene tres columnas en pantallas grandes
+  const cantidadFilas = Math.ceil(cantidadAlfombras / 3);
+
+  const decoracionesMostrar: Decoracion[] =
+    seccion === "catalogo"
+      ? Array.from({ length: cantidadFilas }, (_, index) => {
+          const grafico =
+            graficosCatalogo[index % graficosCatalogo.length];
+
+          return {
+            src: grafico.src,
+            posicion: `${
+              index % 2 === 0 ? "left-3" : "right-3"
+            } ${grafico.ancho}`,
+            top: `${((index + 0.5) / cantidadFilas) * 100}%`,
+            delay: 0.1,
+          };
+        })
+      : decoraciones[seccion];
 
   return (
     <div
       className="pointer-events-none absolute inset-0 z-0"
       aria-hidden="true"
     >
-      {decoraciones[seccion].map((decoracion) => (
+      {decoracionesMostrar.map((decoracion, index) => (
         <motion.img
-          key={decoracion.src}
+          key={`${seccion}-${index}`}
           src={decoracion.src}
           alt=""
           loading="lazy"
-          className={`absolute hidden xl:block ${decoracion.posicion}`}
+          className={`absolute ${
+            seccion === "catalogo"
+              ? "hidden 2xl:block"
+              : "hidden xl:block"
+          } ${decoracion.posicion}`}
+          style={
+            decoracion.top
+              ? { top: decoracion.top }
+              : undefined
+          }
           initial={
             reducirMovimiento
               ? { opacity: 0.4 }

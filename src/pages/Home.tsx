@@ -1,4 +1,5 @@
 import About from "../components/About";
+import FeaturedRugs from "../components/FeatureRugs";
 import Hero from "../components/Hero";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <main>
       <Hero />
       <About />
+      <FeaturedRugs />
     </main>
   );
 };

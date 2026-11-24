@@ -12,7 +12,7 @@ import DecoracionesMarca from "./DecoracionesMarca";
 import fotoCori from "../assets/about/01-trabajando-en-el-taller.webp";
 import fotoTaller from "../assets/about/02-el-taller-y-materiales.webp";
 import fotoTufting from "../assets/about/03-tufting-en-accion.webp";
-import fotoAfeitadora from "../assets/about/04-terminacion-con-afeitadora.webp";
+import fotoAfeitadora from "../assets/about/CORiLab_afeitado.webp";
 import fotoTerminada from "../assets/about/05-alfombra-terminada.webp";
 
 const fotos = [
@@ -64,7 +64,7 @@ const About = () => {
     <section
       id="nosotros"
       aria-labelledby="about-titulo"
-      className="relative isolate mx-auto w-full max-w-[1450px] px-6 pt-8 pb-20 sm:pt-20 md:px-10 lg:pt-6 lg:pb-28"
+      className="relative isolate mx-auto w-full max-w-[1450px] px-6 pt-8 pb-5 sm:pt-20 md:px-10 lg:pt-6 lg:pb-5"
     >
       <DecoracionesMarca seccion="nosotros" />
 
